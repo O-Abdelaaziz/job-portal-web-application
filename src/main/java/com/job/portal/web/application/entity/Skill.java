@@ -28,5 +28,15 @@ public class Skill implements Serializable {
 
     @Column(name = "name")
     private String name;
-    
+
+    @Column(name = "experience")
+    private String experience;
+
+    @Column(name = "level")
+    private String level;
+
+    @ManyToOne
+    @JoinColumn(name = "job_seeker_profile_id", referencedColumnName = "id")
+    @ToString.Exclude
+    private JobSeekerProfile jobSeekerProfile;
 }

@@ -54,10 +54,14 @@ public class JobSeekerProfile implements Serializable {
     @Column(name = "photo")
     private String photo;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id")
     @MapsId
     private User user;
+
+    @OneToMany(mappedBy = "jobSeekerProfile", cascade = CascadeType.ALL)
+    @ToString.Exclude
+    private List<Skill> skills;
 
     public JobSeekerProfile(User user) {
         this.user = user;

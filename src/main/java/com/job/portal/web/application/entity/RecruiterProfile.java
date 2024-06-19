@@ -59,7 +59,7 @@ public class RecruiterProfile implements Serializable {
     @Column(name = "photo", length = 64)
     private String photo;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id")
     @MapsId
     private User user;

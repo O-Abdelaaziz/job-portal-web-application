@@ -56,4 +56,29 @@ public class User implements Serializable {
 
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
     private RecruiterProfile recruiterProfile;
+
+    public User setJobSeekerProfile(JobSeekerProfile jobSeekerProfile) {
+        if (jobSeekerProfile == null) {
+            if (this.jobSeekerProfile != null) {
+                this.jobSeekerProfile.setUser(null);
+            }
+        } else {
+            jobSeekerProfile.setUser(this);
+        }
+        this.jobSeekerProfile = jobSeekerProfile;
+        return this;
+    }
+
+    public User setRecruiterProfile(RecruiterProfile recruiterProfile) {
+        if (recruiterProfile == null) {
+            if (this.recruiterProfile != null) {
+                this.recruiterProfile.setUser(null);
+            }
+        } else {
+            recruiterProfile.setUser(this);
+        }
+        this.recruiterProfile = recruiterProfile;
+        return this;
+    }
+
 }
