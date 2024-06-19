@@ -68,4 +68,10 @@ public class RecruiterProfile implements Serializable {
     public RecruiterProfile(User user) {
         this.user = user;
     }
+
+    @Transient
+    public String getPhotosImagePath() {
+        if (photo == null) return null;
+        return "/photos/recruiter/" + id + "/" + photo;
+    }
 }

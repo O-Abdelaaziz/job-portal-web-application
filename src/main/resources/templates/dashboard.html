@@ -14,7 +14,6 @@
     <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/styles.css}"/>
     <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css} "/>
     <link th:rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}"/>
-
 </head>
 
 <body>
@@ -71,6 +70,14 @@
             </li>
 
         </ul>
+
+        <img
+                class="rounded-circle me-3"
+                height="50px"
+                width="50x"
+                th:if="${currentUser.photosImagePath!=null}"
+                th:src="@{${currentUser?.photosImagePath}}"
+        />
         <label th:if="${currentUser.firstName != null && currentUser.lastName != null}"
                th:text="${currentUser.firstName+' '+currentUser.lastName}"
                class="nav-item nav-link px-2 me-3">

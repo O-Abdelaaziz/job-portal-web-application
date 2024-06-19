@@ -196,12 +196,20 @@ ul.navbar-nav li.nav-item a {
 ul.navbar-nav li.nav-item.active a {
   color: #fb4f14 !important;
 }
+
+ul.navbar-nav li.nav-item a:hover {
+  color: #fb4f14 !important;
+}
 .navbar button.myBtn-light {
   margin: 0 1.25rem;
 }
 a.nav-link > i {
   margin-right: 8px;
   margin-left: 15px;
+}
+
+.nav-link:focus, .nav-link:hover {
+  color: #fb4f14 !important;
 }
 
 section.section {
