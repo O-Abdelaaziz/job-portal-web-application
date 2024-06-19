@@ -38,7 +38,7 @@ public class JobPostActivityController {
             model.addAttribute("username", currentUsername);
         }
 
-        model.addAttribute("user", currentUserProfile);
+        model.addAttribute("currentUser", currentUserProfile);
 
         return "dashboard";
     }
