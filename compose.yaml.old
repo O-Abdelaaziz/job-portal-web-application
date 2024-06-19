@@ -2,9 +2,9 @@ services:
   mysql:
     image: 'mysql:latest'
     environment:
-      - 'MYSQL_DATABASE=mydatabase'
-      - 'MYSQL_PASSWORD=secret'
-      - 'MYSQL_ROOT_PASSWORD=verysecret'
+      - 'MYSQL_DATABASE=job_portal_web_application'
+      - 'MYSQL_PASSWORD=mrabdelaaziz'
+      - 'MYSQL_ROOT_PASSWORD=mrabdelaaziz'
       - 'MYSQL_USER=myuser'
     ports:
       - '3306'
