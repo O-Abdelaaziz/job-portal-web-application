@@ -51,5 +51,9 @@ public class User implements Serializable {
     @JoinColumn(name = "user_type_id", referencedColumnName = "id")
     private UserType userType;
 
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+    private JobSeekerProfile jobSeekerProfile;
 
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+    private RecruiterProfile recruiterProfile;
 }
