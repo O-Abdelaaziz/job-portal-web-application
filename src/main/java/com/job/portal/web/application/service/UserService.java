@@ -7,6 +7,11 @@ import com.job.portal.web.application.repository.JobSeekerProfileRepository;
 import com.job.portal.web.application.repository.RecruiterProfileRepository;
 import com.job.portal.web.application.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AnonymousAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -48,5 +53,24 @@ public class UserService {
             jobSeekerProfileRepository.save(new JobSeekerProfile(savedUser));
         }
         return savedUser;
+    }
+
+    public Object getCurrentUserProfile() {
+
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+        if (!(authentication instanceof AnonymousAuthenticationToken)) {
+            String username = authentication.getName();
+            User user = userRepository.findByEmail(username).orElseThrow(()-> new UsernameNotFoundException("Could not found " + "user"));
+            long userId = user.getId();
+            if (authentication.getAuthorities().contains(new SimpleGrantedAuthority("Recruiter"))) {
+                RecruiterProfile recruiterProfile = recruiterProfileRepository.findById(userId).orElse(new RecruiterProfile());
+                return recruiterProfile;
+            } else {
+                JobSeekerProfile jobSeekerProfile = jobSeekerProfileRepository.findById(userId).orElse(new JobSeekerProfile());
+                return jobSeekerProfile;
+            }
+        }
+        return null;
     }
 }
