@@ -57,6 +57,7 @@ public class JobSeekerProfile implements Serializable {
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id")
     @MapsId
+    @ToString.Exclude
     private User user;
 
     @OneToMany(mappedBy = "jobSeekerProfile", cascade = CascadeType.ALL)

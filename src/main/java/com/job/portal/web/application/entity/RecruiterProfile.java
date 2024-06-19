@@ -32,9 +32,6 @@ public class RecruiterProfile implements Serializable {
     @Column(name = "last_name")
     private String lastName;
 
-    @Column(name = "phone_number")
-    private String phoneNumber;
-
     @Column(name = "address")
     private String address;
 
@@ -46,9 +43,6 @@ public class RecruiterProfile implements Serializable {
 
     @Column(name = "country")
     private String country;
-
-    @Column(name = "postal_code")
-    private String postalCode;
 
     @Column(name = "linkedin_url")
     private String linkedinUrl;
