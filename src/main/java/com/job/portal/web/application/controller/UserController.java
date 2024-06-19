@@ -44,7 +44,7 @@ public class UserController {
     @PostMapping("/register/new")
     public String userRegistration(@Valid User user, Model model) {
         userService.saveUser(user);
-        return "dashboard";
+        return "redirect:/dashboard";
     }
 
     @GetMapping("/login")

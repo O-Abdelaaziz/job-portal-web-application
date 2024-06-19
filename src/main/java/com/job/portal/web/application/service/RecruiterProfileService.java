@@ -27,4 +27,8 @@ public class RecruiterProfileService {
     public Optional<RecruiterProfile> getOne(Long id) {
         return recruiterProfileRepository.findById(id);
     }
+
+    public RecruiterProfile save(RecruiterProfile recruiterProfile) {
+        return recruiterProfileRepository.save(recruiterProfile);
+    }
 }
