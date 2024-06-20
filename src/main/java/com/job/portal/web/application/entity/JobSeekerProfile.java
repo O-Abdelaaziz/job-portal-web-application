@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -62,9 +63,15 @@ public class JobSeekerProfile implements Serializable {
 
     @OneToMany(mappedBy = "jobSeekerProfile", cascade = CascadeType.ALL)
     @ToString.Exclude
-    private List<Skill> skills;
+    private List<Skill> skills = new ArrayList<>();
 
     public JobSeekerProfile(User user) {
         this.user = user;
+    }
+
+    @Transient
+    public String getPhotosImagePath() {
+        if (photo == null || id == null) return null;
+        return "/photos/candidate/" + id + "/" + photo;
     }
 }
