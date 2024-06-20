@@ -18,8 +18,8 @@ import lombok.NoArgsConstructor;
 @Data
 public class RecruiterJobsDto {
     private Long totalCandidates;
-    private Integer jobPostId;
+    private Long id;
     private String jobTitle;
-    private JobLocation jobLocationId;
-    private JobCompany jobCompanyId;
+    private JobLocation jobLocation;
+    private JobCompany jobCompany;
 }

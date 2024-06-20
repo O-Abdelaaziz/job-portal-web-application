@@ -9,7 +9,9 @@ import org.hibernate.validator.constraints.Length;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * @Created 19/6/2024 - 9:03 PM on (Wednesday)
@@ -66,4 +68,13 @@ public class JobPostActivity implements Serializable {
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "job_company_id", referencedColumnName = "id")
     private JobCompany jobCompany;
+
+    @OneToMany(mappedBy = "job", cascade = CascadeType.ALL)
+    @ToString.Exclude
+    private List<JobSeekerApply> jobSeekerApplies = new ArrayList<>();
+
+    @OneToMany(mappedBy = "job", cascade = CascadeType.ALL)
+    @ToString.Exclude
+    private List<JobSeekerSave> jobSeekerSaves = new ArrayList<>();
 }
+

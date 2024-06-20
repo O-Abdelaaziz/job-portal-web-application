@@ -41,6 +41,10 @@ public class UserService {
         this.passwordEncoder = passwordEncoder;
     }
 
+    public User findByEmail(String email) {
+        return userRepository.findByEmail(email).orElse(null);
+    }
+
     public User saveUser(User user) {
         user.setIsActive(true);
         user.setRegistrationDate(new Date(System.currentTimeMillis()));

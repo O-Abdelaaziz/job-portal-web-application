@@ -65,6 +65,14 @@ public class JobSeekerProfile implements Serializable {
     @ToString.Exclude
     private List<Skill> skills = new ArrayList<>();
 
+    @OneToMany(mappedBy = "userId", cascade = CascadeType.ALL)
+    @ToString.Exclude
+    private List<JobSeekerApply> jobSeekerApplies = new ArrayList<>();
+
+    @OneToMany(mappedBy = "userId", cascade = CascadeType.ALL)
+    @ToString.Exclude
+    private List<JobSeekerSave> jobSeekerSaves = new ArrayList<>();
+
     public JobSeekerProfile(User user) {
         this.user = user;
     }
