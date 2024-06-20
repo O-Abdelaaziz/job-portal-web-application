@@ -28,6 +28,7 @@ public class JobCompany implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @Column(name = "name")
     private String name;
 
@@ -46,4 +47,10 @@ public class JobCompany implements Serializable {
     @OneToMany(mappedBy = "jobCompany")
     @ToString.Exclude
     private List<JobPostActivity> jobPostActivities;
+
+    public JobCompany(Long id, String name, String logo) {
+        this.id = id;
+        this.name = name;
+        this.logo = logo;
+    }
 }

@@ -28,7 +28,7 @@ public class JobLocation implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
     @Column(name = "city")
     private String city;
@@ -42,4 +42,11 @@ public class JobLocation implements Serializable {
     @OneToMany(mappedBy = "jobLocation")
     @ToString.Exclude
     private List<JobPostActivity> jobPostActivities;
+
+    public JobLocation(Long id, String city, String state, String country) {
+        this.id = id;
+        this.city = city;
+        this.state = state;
+        this.country = country;
+    }
 }
