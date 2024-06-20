@@ -63,7 +63,7 @@
 
                                         id="user_account_id"
                                         th:field="*{id}"
-                                        name="userAccountId"
+                                        name="id"
                                         type="text"
                                         hidden
                                 />
@@ -235,7 +235,7 @@
                                 />
                                 <input type="text" name="resume" th:field="*{resume}" class="form-control" hidden/>
                                 <a sec:authorize="hasAuthority('Recruiter')"
-                                   th:href="@{|/job-seeker-profile/downloadResume?fileName=${profile.resume}&&userID=${profile.userAccountId}|}">Download
+                                   th:href="@{|/job-seeker-profile/downloadResume?fileName=${profile.resume}&&userID=${profile.id}|}">Download
                                     Resume</a>
                             </div>
                         </div>

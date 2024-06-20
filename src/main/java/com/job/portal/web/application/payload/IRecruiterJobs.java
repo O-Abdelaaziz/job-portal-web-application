@@ -11,7 +11,7 @@ public interface IRecruiterJobs {
 
     Long getTotalCandidates();
 
-    long getJob_post_id();
+    long getId();
 
     String getJob_title();
 

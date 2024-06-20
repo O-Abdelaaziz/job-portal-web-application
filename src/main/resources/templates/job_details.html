@@ -143,7 +143,7 @@
                         <div class="candidatesApplied">
                             <label>Candidates Applied for Job</label>
                             <th:block th:each="applyList:${applyList}">
-                                <a th:href="@{/job-seeker-profile/{id}(id=${applyList.userId.userAccountId})}"
+                                <a th:href="@{/job-seeker-profile/{id}(id=${applyList.userId.id})}"
                                    class="white"
                                    th:text="${applyList.userId.firstName+', '+applyList.userId.lastName}">FirstName,
                                     LastName</a>
