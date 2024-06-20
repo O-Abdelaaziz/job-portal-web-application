@@ -15,6 +15,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import com.job.portal.web.application.service.UserService;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.Date;
@@ -78,5 +79,14 @@ public class JobPostActivityController {
         model.addAttribute("jobPostActivity", jobPostActivity);
         jobPostActivityService.addNew(jobPostActivity);
         return "redirect:/dashboard";
+    }
+
+    @PostMapping("dashboard/edit/{id}")
+    public String editJob(@PathVariable("id") int id, Model model) {
+
+        JobPostActivity jobPostActivity = jobPostActivityService.getJobPostActivityById(id);
+        model.addAttribute("jobPostActivity", jobPostActivity);
+        model.addAttribute("user", userService.getCurrentUserProfile());
+        return "add_jobs";
     }
 }
