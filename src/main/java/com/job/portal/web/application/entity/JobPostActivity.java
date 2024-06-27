@@ -35,7 +35,7 @@ public class JobPostActivity implements Serializable {
     private String jobTitle;
 
     @Column(name = "description_of_job", columnDefinition = "TEXT")
-    @Length(max = 10000)
+//    @Length(max = 10000)
     private String descriptionOfJob;
 
     @Column(name = "job_type")
