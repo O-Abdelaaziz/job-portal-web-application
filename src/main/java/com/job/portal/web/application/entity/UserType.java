@@ -53,4 +53,8 @@ public class UserType implements Serializable {
     public int hashCode() {
         return Objects.hash(id, name);
     }
+
+    public UserType(String name) {
+        this.name = name;
+    }
 }

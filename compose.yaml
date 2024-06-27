@@ -1,0 +1,29 @@
+services:
+  spring-boot-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: jop-portal-web-container
+    ports:
+      - '8085:8080'
+    depends_on:
+      - mysql
+    environment:
+      MYSQL_HOST: mysql
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+      MYSQL_PORT: 3306
+  mysql:
+    image: 'mysql:latest'
+    container_name: mysql-container
+    environment:
+      - 'MYSQL_DATABASE=job_portal_web_application_db'
+      - 'MYSQL_PASSWORD=password'
+      - 'MYSQL_ROOT_PASSWORD=root'
+      - 'MYSQL_USER=mrabdelaaziz'
+    ports:
+      - '3307:3306'
+    volumes:
+      - 'mysql-data:/var/lib/mysql'
+volumes:
+  mysql-data: {}
